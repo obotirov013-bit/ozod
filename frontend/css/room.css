@@ -1,0 +1,241 @@
+/* Страница P2P-комнаты (дополняет styles.css) */
+
+.room-page {
+  background:
+    radial-gradient(120% 70% at 85% -10%, rgba(26, 42, 90, 0.7), rgba(10, 22, 40, 0) 60%),
+    var(--abyss);
+}
+
+.room-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--mist);
+  font: 500 0.9375rem/1 var(--font-display);
+  text-decoration: none;
+}
+
+.room-back:hover {
+  color: var(--star);
+}
+
+.room {
+  width: 100%;
+  max-width: var(--vp-wide);
+  margin-inline: auto;
+  padding: calc(var(--header-h) + 2.5rem) var(--gutter) 4rem;
+}
+
+.room__intro {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.room__title {
+  margin-bottom: 1rem;
+  font-size: var(--fs-h2);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.room__lead {
+  color: var(--mist);
+  font-size: var(--fs-lead);
+}
+
+/* ---------- Форма входа ---------- */
+
+.room-join {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 40rem;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--mist);
+  font: 500 var(--fs-small)/1.4 var(--font-display);
+}
+
+.field__input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 1rem;
+  border: 1px solid var(--orbit-hi);
+  border-radius: var(--radius-m);
+  background: rgba(10, 22, 40, 0.8);
+  color: var(--star);
+  font: 500 1rem/1.2 var(--font-display);
+}
+
+.field__input::placeholder {
+  color: var(--hint);
+  opacity: 1;
+}
+
+.field__input:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+
+.field__input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field__hint {
+  margin-top: 0.5rem;
+  color: var(--haze);
+  font: 400 var(--fs-small)/1.45 var(--font-display);
+}
+
+.room-join__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.room-join__msg {
+  color: var(--danger);
+  font: 400 var(--fs-small)/1.4 var(--font-display);
+}
+
+/* ---------- Комната ---------- */
+
+.room-live__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--orbit);
+}
+
+.room-live__title {
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+}
+
+.room-live__status {
+  margin-top: 0.25rem;
+  color: var(--haze);
+  font: 400 var(--fs-small)/1.4 var(--font-display);
+}
+
+.button--ghost {
+  border: 1px solid var(--orbit-hi);
+  background: transparent;
+  color: var(--star);
+}
+
+.button--ghost:hover {
+  border-color: var(--sun);
+  background: transparent;
+  box-shadow: none;
+}
+
+.room-live__grid {
+  display: grid;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.peers__title {
+  margin-bottom: 0.75rem;
+  color: var(--haze);
+  font: 500 var(--fs-small)/1.4 var(--font-display);
+}
+
+.peers__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.peers__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 44px;
+  border-bottom: 1px solid var(--orbit);
+  font: 500 1rem/1.3 var(--font-display);
+}
+
+.peers__state {
+  color: var(--haze);
+  font: 400 var(--fs-small)/1.3 var(--font-display);
+}
+
+.peers__state.is-direct {
+  color: var(--sun);
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  min-height: 22rem;
+  border: 1px solid var(--orbit);
+  border-radius: var(--radius-m);
+  background: rgba(15, 28, 63, 0.55);
+}
+
+.chat__log {
+  flex: 1;
+  max-height: 28rem;
+  margin: 0;
+  padding: 1rem;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.chat__item {
+  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.chat__name {
+  display: block;
+  color: var(--haze);
+  font: 500 var(--fs-small)/1.3 var(--font-display);
+}
+
+.chat__item.is-self .chat__name {
+  color: var(--sun);
+}
+
+.chat__item.is-system {
+  color: var(--haze);
+  font: 400 var(--fs-small)/1.45 var(--font-display);
+}
+
+.chat__form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--orbit);
+}
+
+.chat__input {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .room-join {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .room-join .field:nth-child(3),
+  .room-join__actions {
+    grid-column: 1 / -1;
+  }
+
+  .room-live__grid {
+    grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);
+  }
+}

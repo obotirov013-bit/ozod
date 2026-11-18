@@ -1,0 +1,12 @@
+# Maven / IDE
+backend/target/
+.idea/
+*.iml
+.vscode/
+
+# Локальная H2-база
+backend/data/
+
+# ОС
+.DS_Store
+Thumbs.db
